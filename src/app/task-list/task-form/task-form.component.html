@@ -17,7 +17,11 @@
 
     <p>
         <label for="status">Status</label>
-        <input type="text" id="status" name="status" [(ngModel)]="enteredStatus" />
+        <select id="status" name="status" [(ngModel)]="enteredStatus">
+            <option value="To Do">To Do</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Done">Done</option>
+        </select>
     </p>
     
     <p>
