@@ -1,0 +1,20 @@
+<app-card>
+    <article>
+        <table>
+            <tr>
+                <td>
+                    <h2>{{ task().title }}</h2>
+                    <time>{{ task().dueDate | date : "fullDate" }}</time>
+                </td>
+                <td>
+                    <div id="status">{{ task().status | titlecase }}</div>
+                    <div id="priority">{{ task().priority | titlecase }}</div>
+                </td>
+            </tr>
+        </table>
+        <p>{{ task().description }}</p>
+        <p class="actions">
+            <button (click)="onComplete()">Complete</button>
+        </p>
+    </article>
+</app-card>
