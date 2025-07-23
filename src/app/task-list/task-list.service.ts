@@ -13,6 +13,14 @@ export class TasksService {
     allTasks = this.tasks.asReadonly();
 
 
+    filterByStatus(status: Status) {
+        return this.allTasks().filter((task) => task.status === status);
+    }
+
+    filterById(id: number) {
+        return this.allTasks().find((task) => task.id === id);
+    }
+
     fetchTasks() {
         const tasks = localStorage.getItem('tasks');
 
@@ -38,10 +46,10 @@ export class TasksService {
         });
     }
 
-    addTask(taskData: NewTaskData) {
+    addTask(taskData: NewTaskData, id?: number) {
         this.tasks.update((prevTasks) => [
             {
-                id: this.allTasks().length + 1,
+                id: id ? id : this.allTasks().length + 1,
                 title: taskData.title,
                 description: taskData.description,
                 dueDate: taskData.dueDate,

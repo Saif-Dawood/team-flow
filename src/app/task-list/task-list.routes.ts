@@ -8,11 +8,11 @@ export const routes: Routes = [
         component: TaskFormComponent,
         canDeactivate: [canLeaveEditPage],
     },
-    // {
-    //     path: 'edit/:id',
-    //     component: TaskFormComponent,
-    //     canDeactivate: [canLeaveEditPage],
-    // },
+    {
+        path: 'edit/:id',
+        component: TaskFormComponent,
+        canDeactivate: [canLeaveEditPage],
+    },
     // {
     //     path: ':id',
     //     component: TaskDetailsComponent,

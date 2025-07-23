@@ -26,5 +26,13 @@ export class TaskItemComponent {
             queryParamsHandling: 'preserve',
         });
     }
+
+    onEdit() {
+        this.router.navigate(['./edit/', this.task().id], {
+            relativeTo: this.activatedRoute,
+            onSameUrlNavigation: 'reload',
+            queryParamsHandling: 'preserve',
+        });
+    }
 }
 

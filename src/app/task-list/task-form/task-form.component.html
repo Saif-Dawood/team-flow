@@ -1,23 +1,18 @@
 <h2>Add Task</h2>
-<form (ngSubmit)="onSubmit()">
+<form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
     <p>
         <label for="title">Title</label>
-        <input type="text" id="title" name="title" [(ngModel)]="enteredTitle" />
+        <input type="text" id="title" formControlName="title" />
     </p>
-    
+
     <p>
         <label for="description">Description</label>
-        <textarea
-            id="description"
-            rows="5"
-            name="description"
-            [(ngModel)]="enteredDescription"
-        ></textarea>
+        <textarea id="description" rows="5" formControlName="description"></textarea>
     </p>
 
     <p>
         <label for="status">Status</label>
-        <select id="status" name="status" [(ngModel)]="enteredStatus">
+        <select id="status" formControlName="status">
             <option value="To Do">To Do</option>
             <option value="In Progress">In Progress</option>
             <option value="Done">Done</option>
@@ -26,27 +21,21 @@
 
     <p>
         <label for="priority">Priority</label>
-        <select id="priority" name="priority" [(ngModel)]="enteredPriority">
+        <select id="priority" name="priority" formControlName="priority" >
             <option value="P1">P1</option>
             <option value="P2">P2</option>
             <option value="P3">P3</option>
             <option value="P4">P4</option>
         </select>
     </p>
-    
+
     <p>
-        <label for="due-date">Due Date</label>
-        <input
-            type="date"
-            id="due-date"
-            name="due-date"
-            [(ngModel)]="enteredDate"
-        />
+        <label for="dueDate">Due Date</label>
+        <input type="date" id="dueDate" formControlName="dueDate" />
     </p>
-    
+
     <p class="actions">
-        <a routerLink="../">Cancel</a>
-        <button type="submit">Create</button>
+        <a routerLink="/tasks">Cancel</a>
+        <button type="submit">{{ submitText }}</button>
     </p>
 </form>
-
