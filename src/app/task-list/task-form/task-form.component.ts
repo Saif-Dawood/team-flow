@@ -41,11 +41,16 @@ export class TaskFormComponent {
 }
 
 export const canLeaveEditPage: CanDeactivateFn<TaskFormComponent> = (component) => {
-    console.log("component" + component);
     if (component.submitted) {
         return true;
     }
-    if (component.enteredTitle() || component.enteredDate() || component.enteredDescription()) {
+    if (
+            component.enteredTitle() ||
+            component.enteredDescription() ||
+            component.enteredStatus() ||
+            component.enteredDate() ||
+            component.enteredPriority()
+        ) {
         return window.confirm('Do you really want to leave? You will lose the entered data.')
     }
     return true;
