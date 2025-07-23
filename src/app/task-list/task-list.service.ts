@@ -10,11 +10,18 @@ export class TasksService {
     private tasks = signal<Task[]>([]);
     private destroyRef = inject(DestroyRef);
 
-    allTasks = this.tasks.asReadonly();
+    filteredTasks = signal<Task[]>([]);
+    allTasks = this.filteredTasks.asReadonly();
 
 
-    filterByStatus(status: Status) {
-        return this.allTasks().filter((task) => task.status === status);
+    filterByStatus(status: Status | 'no filter') {
+        if (status === 'no filter') {
+            this.filteredTasks.set(this.tasks());
+            return;
+        }
+        this.filteredTasks.set(
+            this.tasks().filter((task) => task.status === status)
+        );
     }
 
     filterById(id: number) {
@@ -26,6 +33,7 @@ export class TasksService {
 
         if (tasks) {
             this.tasks.set(JSON.parse(tasks));
+            this.filteredTasks.set(this.tasks());
             return;
         }
 
@@ -40,7 +48,9 @@ export class TasksService {
                     priority: task.priority as Priority,
                 }))
             );
+            this.filteredTasks.set(this.tasks());
         });
+
         this.destroyRef.onDestroy(() => {
             subscription.unsubscribe();
         });
@@ -49,7 +59,7 @@ export class TasksService {
     addTask(taskData: NewTaskData, id?: number) {
         this.tasks.update((prevTasks) => [
             {
-                id: id ? id : this.allTasks().length + 1,
+                id: id ? id : this.tasks().length + 1,
                 title: taskData.title,
                 description: taskData.description,
                 dueDate: taskData.dueDate,
@@ -59,6 +69,7 @@ export class TasksService {
             ...prevTasks,
         ]);
         this.saveTasks();
+        this.filteredTasks.set(this.tasks());
     }
 
     removeTask(id: number) {
@@ -66,6 +77,7 @@ export class TasksService {
             prevTasks.filter((task) => task.id !== id)
         );
         this.saveTasks();
+        this.filteredTasks.set(this.tasks());
     }
 
     private saveTasks() {
