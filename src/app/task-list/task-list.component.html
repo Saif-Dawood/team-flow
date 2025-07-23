@@ -1,12 +1,12 @@
-<p>
+<!-- <p>
   <a routerLink="./" [queryParams]="{order: order() === 'asc' ? 'desc' : 'asc'}">
     Sort {{ order() === 'asc' ? 'Descending' : 'Ascending' }}
   </a>
-</p>
+</p> -->
 
 <router-outlet />
 <ul>
-  @for (task of tasks(); track task.id) {
+  @for (task of tasksService.allTasks(); track task.id) {
     <li>
       <app-task-item [task]="task" />
     </li>

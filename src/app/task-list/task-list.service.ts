@@ -39,10 +39,9 @@ export class TasksService {
     }
 
     addTask(taskData: NewTaskData) {
-        const lastTask  = this.allTasks().at(-1);
         this.tasks.update((prevTasks) => [
             {
-                id: lastTask ? lastTask.id + 1 : 0,
+                id: this.allTasks().length + 1,
                 title: taskData.title,
                 description: taskData.description,
                 dueDate: taskData.dueDate,

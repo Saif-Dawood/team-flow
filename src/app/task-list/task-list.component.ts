@@ -11,19 +11,26 @@ import { TaskItemComponent } from "./task-item/task-item.component";
     templateUrl: './task-list.component.html',
     styleUrl: './task-list.component.css'
 })
-export class TaskListComponent {
-    tasks = input.required<Task[]>();
+export class TaskListComponent implements OnInit {
+    tasksService = inject(TasksService);
     order = input<'asc' | 'desc' | undefined>();
+
+    ngOnInit(): void {
+        console.log("ngOnInit");
+        this.tasksService.fetchTasks();
+        console.log(this.tasksService.allTasks());
+    }
+
 }
 
 export const resolveTasks: ResolveFn<Task[]> = (
     activatedRouteSnapshot,
     routerState
 ) => {
+    console.log("resolveTasks() is currently running")
     const order = activatedRouteSnapshot.queryParams['order'];
     const tasksService = inject(TasksService);
-    tasksService.fetchTasks();
-    const tasks = tasksService.allTasks();
+    const tasks = tasksService.allTasks()
 
     if (order && order === 'asc') {
         tasks.sort((a, b) => (a.id > b.id ? 1 : -1));
