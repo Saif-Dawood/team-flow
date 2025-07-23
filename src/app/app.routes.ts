@@ -2,7 +2,7 @@ import { Routes } from '@angular/router';
 
 import { routes as tasksRoutes } from './task-list/task-list.routes';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { TaskListComponent } from './task-list/task-list.component';
+import { TaskListComponent, resolveTasks } from './task-list/task-list.component';
 
 export const routes: Routes = [
     {
@@ -19,6 +19,10 @@ export const routes: Routes = [
             message: 'data:message'
         },
         title: "Tasks",
+        runGuardsAndResolvers: 'paramsOrQueryParamsChange',
+        resolve: {
+            tasks: resolveTasks
+        }
     },
     {
         path: '**',

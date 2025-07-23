@@ -6,7 +6,7 @@
 
 <router-outlet />
 <ul>
-  @for (task of tasksService.allTasks(); track task.id) {
+  @for (task of tasks(); track task.id) {
     <li>
       <app-task-item [task]="task" />
     </li>
