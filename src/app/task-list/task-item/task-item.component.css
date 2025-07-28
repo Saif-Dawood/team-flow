@@ -14,11 +14,9 @@ table {
 }
 
 #priority {
-    /* text-align: center; */
     text-align: right;
     font-size: large;
     font-weight: bold;
-    /* color: #ac0000; */
 }
 
 #status{

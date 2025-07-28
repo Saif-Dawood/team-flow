@@ -15,9 +15,6 @@ export const routes: Routes = [
         path: 'tasks',
         component: TaskListComponent,
         children: tasksRoutes,
-        data: {
-            message: 'data:message'
-        },
         title: "Tasks",
     },
     {

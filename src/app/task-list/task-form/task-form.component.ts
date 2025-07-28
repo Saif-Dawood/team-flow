@@ -1,9 +1,9 @@
-import { Component, inject, input, signal } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, CanDeactivateFn, Router, RouterLink } from '@angular/router';
 
 import { TasksService } from '../task-list.service';
-import { NewTaskData, Priority, Status, Task } from '../task-item/task-item.model';
+import { NewTaskData, Priority, Status } from '../task-item/task-item.model';
 
 @Component({
     selector: 'app-task-form',
@@ -87,9 +87,8 @@ export class TaskFormComponent {
             this.router.navigate(['/tasks'], {
                 replaceUrl: true,
             })
-        }
-        else {
-            console.log(this.taskForm);
+        } else {
+            this.submitted = false;
         }
     }
 

@@ -1,9 +1,3 @@
-<p>
-    <a routerLink="./" [queryParams]="{order: order() === 'asc' ? 'desc' : 'asc'}">
-        Sort {{ order() === 'asc' ? 'Descending' : 'Ascending' }}
-    </a>
-</p>
-
 <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
     <label for="statusFilter">Status</label>
     <select id="statusFilter" formControlName="statusFilter">
