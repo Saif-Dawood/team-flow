@@ -18,3 +18,35 @@ ul {
     max-height: 50vh;
     overflow: auto;
 }
+
+button {
+    background-color: transparent;
+    background-color: #9965dd;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    font: inherit;
+    font-size: 0.9rem;
+    color: #181223;
+    cursor: pointer;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    height: 35px;
+}
+
+button:hover,
+button:active {
+    background-color: #a565dd;
+}
+
+select {
+    padding: 8px 12px;
+    margin: 5px;
+    border-radius: 4px;
+    border: 1px solid #ab9ac0;
+    background-color: #d0c2e1;
+    font: inherit;
+    color: #333;
+    transition: border-color 0.3s ease;
+    height: 35px;
+}
