@@ -33,10 +33,16 @@ export class TaskFormComponent {
                 Validators.minLength(10)
             ]),
             status: new FormControl<Status>('To Do', [
-                Validators.required
+                Validators.required,
+                (control) => {
+                    return ['To Do', 'In Progress', 'Done'].includes(control.value) ? null : { statusInvalid: true };
+                }
             ]),
             priority: new FormControl<Priority>('P4', [
-                Validators.required
+                Validators.required,
+                (control) => {
+                    return ['P1', 'P2', 'P3', 'P4'].includes(control.value) ? null : { priorityInvalid: true };
+                }
             ]),
             dueDate: new FormControl('', [
                 Validators.required,

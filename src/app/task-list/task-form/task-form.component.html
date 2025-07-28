@@ -3,11 +3,30 @@
     <p>
         <label for="title">Title</label>
         <input type="text" id="title" formControlName="title" />
+        @if (taskForm.get('title')?.touched && taskForm.get('title')?.invalid) {
+            <div class="validation-error">
+                @if (taskForm.get('title')?.errors?.['required']) {
+                    <div>Required</div>
+                } @else if (taskForm.get('title')?.errors?.['minlength']) {
+                    <div>Title must be at least 3 characters.</div>
+                }
+            </div>
+        }
+
     </p>
 
     <p>
         <label for="description">Description</label>
         <textarea id="description" rows="5" formControlName="description"></textarea>
+        @if (taskForm.get('description')?.touched && taskForm.get('description')?.invalid) {
+            <div class="validation-error">
+                @if (taskForm.get('description')?.errors?.['required']) {
+                    <div>Required</div>
+                } @else if (taskForm.get('description')?.errors?.['minlength']) {
+                    <div>Description must be at least 10 characters.</div>
+                }
+            </div>
+        }
     </p>
 
     <p>
@@ -17,6 +36,15 @@
             <option value="In Progress">In Progress</option>
             <option value="Done">Done</option>
         </select>
+        @if (taskForm.get('status')?.touched && taskForm.get('status')?.invalid) {
+            <div class="validation-error">
+                @if (taskForm.get('status')?.errors?.['required']) {
+                    <div>Required</div>
+                } @else if (taskForm.get('status')?.errors?.['statusInvalid']) {
+                    <div>The returned value is unknown</div>
+                }
+            </div>
+        }
     </p>
 
     <p>
@@ -27,11 +55,29 @@
             <option value="P3">Medium</option>
             <option value="P4">Low</option>
         </select>
+        @if (taskForm.get('priority')?.touched && taskForm.get('priority')?.invalid) {
+            <div class="validation-error">
+                @if (taskForm.get('priority')?.errors?.['required']) {
+                    <div>Required</div>
+                } @else if (taskForm.get('priority')?.errors?.['priorityInvalid']) {
+                    <div>The returned value is unknown</div>
+                }
+            </div>
+        }
     </p>
 
     <p>
         <label for="dueDate">Due Date</label>
         <input type="date" id="dueDate" formControlName="dueDate" />
+        @if (taskForm.get('dueDate')?.touched && taskForm.get('dueDate')?.invalid) {
+            <div class="validation-error">
+                @if (taskForm.get('dueDate')?.errors?.['required']) {
+                    <div>Required</div>
+                } @else if (taskForm.get('dueDate')?.errors?.['dateInvalid']) {
+                    <div>Due Date must be after today</div>
+                }
+            </div>
+        }
     </p>
 
     <p class="actions">

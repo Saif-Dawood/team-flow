@@ -97,3 +97,15 @@ select {
     color: #333;
     transition: border-color 0.3s ease;
 }
+
+input.ng-touched.ng-invalid,
+textarea.ng-touched.ng-invalid,
+select.ng-touched.ng-invalid {
+  border: 2px solid #e74c3c; 
+}
+
+.validation-error {
+  color: #e74c3c;
+  font-size: 0.85em;
+  margin-top: 4px;
+}
