@@ -28,7 +28,7 @@
         "title": "write acceptance criteria",
         "description": "document feature scope and validations for the angular phase",
         "status": "to do",
-        "duedate": "2025-07-11t14:00:00z",
+        "dueDate": "2025-07-11t14:00:00z",
         "priority": "p4"
     }
 ]
