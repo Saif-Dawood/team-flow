@@ -34,5 +34,20 @@ export class TaskItemComponent {
             queryParamsHandling: 'preserve',
         });
     }
+
+    getPriorityString(priority: string) {
+        switch (priority) {
+            case 'P1':
+                return 'Critical';
+            case 'P2':
+                return 'Major';
+            case 'P3':
+                return 'Medium';
+            case 'P4':
+                return 'Low';
+            default:
+                return 'Something wrong happened';
+        }
+    }
 }
 

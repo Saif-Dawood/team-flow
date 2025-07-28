@@ -8,7 +8,7 @@
                 </td>
                 <td>
                     <div id="status">{{ task().status | titlecase }}</div>
-                    <div id="priority">{{ task().priority | titlecase }}</div>
+                    <div id="priority">{{ getPriorityString(task().priority.toUpperCase()) | titlecase }}</div>
                 </td>
             </tr>
         </table>
