@@ -109,3 +109,19 @@ select.ng-touched.ng-invalid {
   font-size: 0.85em;
   margin-top: 4px;
 }
+
+.Red {
+    color: #e74c3c;
+}
+
+.Orange {
+    color: #f39c12;
+}
+
+.Blue {
+    color: #3498db;
+}
+
+.Green {
+    color: #2ecc71;
+}

@@ -21,6 +21,7 @@ export class TaskFormComponent {
 
     taskForm!: FormGroup;
     submitText: string = 'Create';
+    selectedPriorityColor: string = 'Green';
 
     ngOnInit() {
         this.taskForm = new FormGroup({
@@ -91,7 +92,27 @@ export class TaskFormComponent {
             console.log(this.taskForm);
         }
     }
-  
+
+    getPriorityColor() {
+
+        switch (this.taskForm.value['priority']) {
+            case 'P1':
+                this.selectedPriorityColor = 'Red';
+                break;
+            case 'P2':
+                this.selectedPriorityColor = 'Orange';
+                break;
+            case 'P3':
+                this.selectedPriorityColor = 'Blue';
+                break;
+            case 'P4':
+                this.selectedPriorityColor = 'Green';
+                break;
+            default:
+                this.selectedPriorityColor = 'Black';
+        }
+
+    }
 }
 
 export const canLeaveEditPage: CanDeactivateFn<TaskFormComponent> = (component) => {

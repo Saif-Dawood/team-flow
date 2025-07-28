@@ -49,11 +49,17 @@
 
     <p>
         <label for="priority">Priority</label>
-        <select id="priority" name="priority" formControlName="priority" >
-            <option value="P1">Critical</option>
-            <option value="P2">Major</option>
-            <option value="P3">Medium</option>
-            <option value="P4">Low</option>
+        <select
+            id="priority"
+            name="priority"
+            formControlName="priority"
+            [class]="selectedPriorityColor"
+            (change)="getPriorityColor()"
+        >
+            <option value="P1" class="Red">Critical</option>
+            <option value="P2" class="Orange">Major</option>
+            <option value="P3" class="Blue">Medium</option>
+            <option value="P4" class="Green">Low</option>
         </select>
         @if (taskForm.get('priority')?.touched && taskForm.get('priority')?.invalid) {
             <div class="validation-error">

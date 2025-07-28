@@ -38,15 +38,30 @@ export class TaskItemComponent {
     getPriorityString(priority: string) {
         switch (priority) {
             case 'P1':
-                return 'Critical';
+                return {
+                    value: 'Critical',
+                    color: 'Red',
+                };
             case 'P2':
-                return 'Major';
+                return {
+                    value: 'Major',
+                    color: 'Orange',
+                };
             case 'P3':
-                return 'Medium';
+                return {
+                    value: 'Medium',
+                    color: 'Blue',
+                };
             case 'P4':
-                return 'Low';
+                return {
+                    value: 'Low',
+                    color: 'Green',
+                };
             default:
-                return 'Something wrong happened';
+                return {
+                    value: 'Something wrong happened',
+                    color: 'Black',
+                };
         }
     }
 }

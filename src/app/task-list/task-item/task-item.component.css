@@ -18,7 +18,7 @@ table {
     text-align: right;
     font-size: large;
     font-weight: bold;
-    color: #ac0000;
+    /* color: #ac0000; */
 }
 
 #status{
@@ -53,4 +53,20 @@ time {
 .actions button:active {
     background-color: #4a0774;
     box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+}
+
+.Red {
+    color: #e74c3c;
+}
+
+.Orange {
+    color: #f39c12;
+}
+
+.Blue {
+    color: #3498db;
+}
+
+.Green {
+    color: #2ecc71;
 }
